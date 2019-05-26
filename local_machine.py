@@ -5,7 +5,7 @@ import requests
 import RPi.GPIO as GPIO
 import subprocess
 
-server='http://192.168.1.4'
+server='http://188.131.218.41'
 def playsound(path):
     subprocess.Popen(['mpg123', '-q', path]).wait()
 

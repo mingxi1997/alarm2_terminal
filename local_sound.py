@@ -52,8 +52,15 @@ class local_sound():
     def check_local(self):
         with open('local_alarm.txt','r')as f:
             local_alarm=f.read()
+        with open('affirm.txt','r')as f:
+            affirm=f.read()    
         if local_alarm=='1':
-            playsound('local_alarm.mp3')
+            if affirm=='1':
+                playsound('local_alarm_no_affirm.mp3')
+                playsound('local_alarm.mp3')
+            else:
+                playsound('local_alarm_affirm.mp3')
+                playsound('local_alarm.mp3')
         
         
     
