@@ -5,7 +5,7 @@ import requests
 import RPi.GPIO as GPIO
 import subprocess
 
-server='http://188.131.218.41'
+server='http://192.168.1.4'
 def playsound(path):
     subprocess.Popen(['mpg123', '-q', path]).wait()
 
@@ -113,7 +113,7 @@ for n in range(len(Relay)):
             
 
         
-bzy=local_machine(name='发射二营')
+bzy=local_machine(name='卫生队')
 error=3
 while True:
     try:

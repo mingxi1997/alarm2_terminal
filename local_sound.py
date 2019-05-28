@@ -22,6 +22,7 @@ class local_sound():
         self.text=text
         self.times=times
         self.text_type=text_type
+        self.warning=0
 
     def get_text(self):
         with open('text.txt','r')as f:
@@ -52,15 +53,22 @@ class local_sound():
     def check_local(self):
         with open('local_alarm.txt','r')as f:
             local_alarm=f.read()
-        with open('affirm.txt','r')as f:
-            affirm=f.read()    
+           
         if local_alarm=='1':
-            if affirm=='1':
+            with open('affirm.txt','r')as f:
+                affirm=f.read()
+            if self.warning==0:
+                playsound('local_alarm.mp3')
+            
+            if affirm=='1' and self.warning==1:
                 playsound('local_alarm_no_affirm.mp3')
                 playsound('local_alarm.mp3')
-            else:
+            elif affirm=='0' and self.warning==1:
                 playsound('local_alarm_affirm.mp3')
                 playsound('local_alarm.mp3')
+            self.warning=1
+        else:
+            self.warning=0
         
         
     

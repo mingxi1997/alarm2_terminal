@@ -17,13 +17,21 @@ def show_text():
     if event=='1':
         with open('text.txt','r')as f:
             text=eval(f.read())
-             
+        
+        def is_no_message(text):
+            if text[2][:5]=='ALARM' and len(text[2])<=6:
+                return False
+            elif text[2][:5]=='BROAD' and len(text[2])<=10:    
+                return False
+            else:
+                return True
+
         panel1= Label(root,text=text[1],width =25,height = 1,font=('Timesnewroman','22')).place(x=285,y=170)
         panel2= Label(root,text=text[0],width =25,height = 1,font=('Timesnewroman','22')).place(x=834,y=170)
-        if len(text[2])>10:
-            panel3= Label(root,text=text[2][5:],width =45,height = 9,font=('song','29'),justify = 'left',wraplength = 1050 ).place(x=77,y=238)
+        if is_no_message(text):
+            panel3= Label(root,text=text[2][5:],width =45,height = 9,font=('song','29'),justify = 'left',wraplength = 1050 ).place(x=80,y=238)
         else:
-            panel3= Label(root,image=photo4).place(x=72,y=238)
+            panel3= Label(root,image=photo4).place(x=80,y=238)
         with open('event_come.txt','w')as f:
             f.write('0')
     
