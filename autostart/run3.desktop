@@ -1,0 +1,14 @@
+#file start
+
+[Desktop Entry]
+Name=example
+Comment=My Python Program
+Exec=python3.5 /home/pi/time_control.py
+Icon=/home/pi/example.png
+Terminal=true
+MultipleArgs=false
+Type=Application
+Categories=Application;Development;
+StartupNotify=false
+#file end
+X-KeepTerminal=true
