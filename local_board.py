@@ -4,8 +4,6 @@ from tkinter import *
 
 
 
-
-
 def show_text():
     with open('event_come.txt','r')as f:
         event=f.read()
@@ -63,9 +61,9 @@ with open('affirm_add.txt','w')as f:
 root=Tk()
 root.geometry('1280x800')
 root.resizable(0,0)
+root.overrideredirect(True)
+root.attributes('-fullscreen',1)
 
-#root.attributes('-fullscreen',1)
-#root.overrideredirect(True)
 photo=PhotoImage(file="bg.png")
 
 
